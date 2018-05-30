@@ -1,0 +1,44 @@
+<!--გრიდი-->
+<eui-datagrid [data]="result" [clickToEdit]="true" selectionMode="cell" editMode="cell" style="height: 250px">
+  <eui-grid-column field="phoneNo" title="phoneNo" [headerStyle]=""></eui-grid-column>
+  <eui-grid-column field="operationDate" title="operationDate" ></eui-grid-column>
+  <eui-grid-column field="amount" title="amount" ></eui-grid-column>
+  <eui-grid-column field="description" title="description" ></eui-grid-column>
+</eui-datagrid>
+<div class="row">
+
+  <div class="col-sm-2">
+    <label for="davalianeba">ბოლო გადახდა:</label>
+    <input type="text" [(ngModel)]="details.amount"  disabled id="davalianeba">
+  </div>
+  <div class="col-sm-3">
+    <label for="mimdinareVali">გადახდის შემდეგ ვალი:</label>
+    <input type="text" [(ngModel)]="details.currentBalance" disabled  id="mimdinareVali">
+  </div>
+  <div class="col-sm-2">
+    <label for="ganvadeba">გადახდამდე ვალი:</label>
+    <input type="text" [(ngModel)]="details.prevBalance" disabled id="ganvadeba">
+  </div>
+  <div class="col-sm-3">
+    <label for="gadavadebuliTanxa">გადახდის დრო:</label>
+    <input type="text" [(ngModel)]="details.operationDate"  disabled id="gadavadebuliTanxa">
+  </div>
+</div>
+<eui-dialog #d2 [title]="'დარიცხვა'" [closed]="true" [resizable]="true" [panelStyle]="{width:'400px',height:'300px'}" [modal]="true" [draggable]="true">
+  <eui-datagrid [data]="accts.result" [clickToEdit]="true" selectionMode="cell" editMode="cell" style="height: 250px">
+    <eui-grid-column field="amount" title="amount" ></eui-grid-column>
+    <eui-grid-column field="operationDate" title="operationDate" ></eui-grid-column>
+
+  </eui-datagrid>
+</eui-dialog>
+<eui-dialog #d3 [title]="'დარიცხვა წლის მიხედვით'" [closed]="true" [resizable]="true" [panelStyle]="{width:'400px',height:'300px'}" [modal]="true" [draggable]="true">
+  <eui-datagrid [data]="accts.result2" [clickToEdit]="true" selectionMode="cell" editMode="cell" style="height: 250px">
+    <eui-grid-column field="amount" title="amount" ></eui-grid-column>
+    <eui-grid-column field="operationDate" title="operationDate" ></eui-grid-column>
+
+  </eui-datagrid>
+</eui-dialog>
+<br>
+<button type="button" target="_blank"  (click)="getGridsDataYear(d3)" class="btn btn-success">დარიცხვები წლის მიხედვით</button>
+<button type="button"  target="_blank" (click)="getGridsData(d2)" class="btn btn-success">დარიცხვები</button>
+<button type="button" (click)="incomingCallsData()"  target="_blank" class="btn btn-success">Execute</button>

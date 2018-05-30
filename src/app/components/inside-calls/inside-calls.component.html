@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="inside-calls.component.ts"></script>
+</head>
+<body>
+<div class="row">
+  <div class="col-sm-2">
+    <label for="phone">ნომერი:</label>
+    <input type="text" [(ngModel)]="glob.phone" id="phone">
+  </div>
+  <div class="col-sm-2">
+    <label for="sDate">რიცხვი(დან):</label>
+    <input type="date" [(ngModel)]="glob.startDate"  id="sDate">
+  </div>
+  <div class="col-sm-2">
+    <label for="eDate">რიცხვი(მდე):</label>
+    <input type="date" [(ngModel)]="glob.endDate" id="eDate">
+  </div>
+</div>
+<hr>
+<!--<tr *ngFor="let obj of ics.result3">-->
+<div class="row">
+
+  <div class="col-sm-2">
+    <label for="davalianeba">დავალიანება:</label>
+    <input type="text" [(ngModel)]="details.currentBalance"  disabled id="davalianeba">
+  </div>
+  <div class="col-sm-2">
+    <label for="mimdinareVali">მიმდინარე ვალი:</label>
+    <input type="text" [(ngModel)]="details.creditBalance" disabled  id="mimdinareVali">
+  </div>
+  <div class="col-sm-2">
+    <label for="ganvadeba">განვადება:</label>
+    <input type="text" [(ngModel)]="details.estimateBalance"  disabled id="ganvadeba">
+  </div>
+  <div class="col-sm-3">
+    <label for="gadavadebuliTanxa">გადავადებული თანხა:</label>
+    <input type="text" [(ngModel)]="details.dowPaymentBalance" disabled id="gadavadebuliTanxa">
+  </div>
+</div>
+<!--</tr>-->
+<hr>
+<!--გრიდი-->
+<eui-datagrid [data]="ics.result2" [clickToEdit]="true" selectionMode="cell" editMode="cell" style="height: 250px">
+  <eui-grid-column field="cgno" title="cgno" editable="true" [headerStyle]=""></eui-grid-column>
+  <eui-grid-column field="meter" title="meter"></eui-grid-column>
+  <eui-grid-column field="dateOfCall" title="dateOfCall" ></eui-grid-column>
+  <eui-grid-column field="cdno" title="cdno" ></eui-grid-column>
+  <eui-grid-column field="location" title="location" ></eui-grid-column>
+  <eui-grid-column field="countryDescr" title="countryDescr" ></eui-grid-column>
+  <eui-grid-column field="amount" title="amount" ></eui-grid-column>
+  <eui-grid-column field="timeofcall" title="timeofcall" ></eui-grid-column>
+</eui-datagrid>
+<!--დიალოგი-->
+<eui-dialog #d1 [title]="'Basic Dialog'" [closed]="true" [resizable]="true" [panelStyle]="{width:'700px',height:'200px'}" [modal]="true" [draggable]="true">
+    <table class="table-bordered" style="font-size: medium">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>აბონენტი</th>
+        <th>subscriber</th>
+        <th>დადგმის თარიღი</th>
+        <th>დახურვის თარიღი</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let obj of ics.result">
+        <td >
+         <input type="radio" (change)="change($event)" value="{{obj.subscrNum}}"/>
+        </td>
+        <td>
+          <div> {{obj.abonenti}} </div>
+        </td>
+        <td>
+          <div> {{obj.subscrNum}} </div>
+        </td>
+        <td>
+          <div> {{obj.installDate}} </div>
+        </td>
+        <td>
+          <div> {{obj.endDate}} </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  <button type="button" (click)="getSubscrDetailsTab1Ok1(d1)" class="btn btn-primary">OK</button>
+  <button type="button" (click)="d1.close()" class="btn btn-secondary">Cancel</button>
+</eui-dialog>
+<hr>
+<button type="button" (click)="getSubscrDetailsDialog(d1)" class="btn btn-success">Execute</button>
+<button type="button" (click)="onNavigate()" target="_blank" class="btn btn-success">ბეჭდვა</button>
+<button type="button"  (click)="oneNumberPrintReports()" target="_blank" class="btn btn-success">ერთი ნომრის ამობეჭდვა</button>
+<button type="button"  (click)="anatherTwiceReport()" target="_blank" class="btn btn-success">სხვადასხვა</button>
+</body>
+</html>

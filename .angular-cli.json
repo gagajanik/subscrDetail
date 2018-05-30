@@ -19,9 +19,21 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/angular-easyui/themes/material/easyui.css",
+        "../node_modules/angular-easyui/themes/material/messager.css",
+        "../node_modules/angular-easyui/themes/angular.css",
+        "../node_modules/angular-easyui/themes/icon.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.css"
+
+
+
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.bundle.js",
+        "../node_modules/bootstrap/js/dist/tab.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

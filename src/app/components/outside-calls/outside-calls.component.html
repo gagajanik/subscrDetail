@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<!--გრიდი-->
+<eui-datagrid [data]="result" [pageSize]="200" [clickToEdit]="true" selectionMode="cell" editMode="cell" style="height: 250px">
+  <eui-grid-column field="meter" title="meter"></eui-grid-column>
+  <eui-grid-column field="dateOfCall" title="dateOfCall" ></eui-grid-column>
+  <eui-grid-column field="cdno" title="cdno" ></eui-grid-column>
+  <eui-grid-column field="location" title="location" ></eui-grid-column>
+  <eui-grid-column field="countryDescr" title="countryDescr" ></eui-grid-column>
+  <eui-grid-column field="amount" title="amount" ></eui-grid-column>
+  <eui-grid-column field="timeOfCall" title="timeofcall" ></eui-grid-column>
+</eui-datagrid>
+<hr>
+<button type="button" (click)="getOutsideTabData()" class="btn btn-success">Execute</button>
+<button type="button" (click)="tab2PrintReport()"  class="btn btn-success">ბეჭდვა</button>
+</body>
+</html>

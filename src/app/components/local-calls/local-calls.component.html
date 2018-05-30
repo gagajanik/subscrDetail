@@ -1,0 +1,10 @@
+<!--გრიდი-->
+<eui-datagrid [data]="result" [clickToEdit]="true" selectionMode="cell" editMode="cell" style="height: 250px">
+  <eui-grid-column field="cgno" title="cgno" [headerStyle]=""></eui-grid-column>
+  <eui-grid-column field="dateOfCall" title="dateOfCall" ></eui-grid-column>
+  <eui-grid-column field="durationOfCall" title="durationOfCall" ></eui-grid-column>
+  <eui-grid-column field="timeOfCall" title="timeofcall" ></eui-grid-column>
+</eui-datagrid>
+<hr>
+<button type="button" target="_blank" (click)="localCallsReport()" class="btn btn-success">ბეჭდვა</button>
+<button type="button" (click)="localCallsData()" target="_blank" class="btn btn-success">Execute</button>
